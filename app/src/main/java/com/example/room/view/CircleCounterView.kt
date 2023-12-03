@@ -18,13 +18,13 @@ class CircleCounterView @JvmOverloads constructor(
     var done: Int
         get() = binding.done.text.toString().toInt()
         set(value) {
-            binding.done.text = done.toString()
+            binding.done.text = value.toString()
         }
 
     var total: Int
         get() = binding.total.text.toString().toInt()
         set(value) {
-            binding.total.text = done.toString()
+            binding.total.text = value.toString()
         }
 
 

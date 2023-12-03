@@ -9,5 +9,5 @@ import androidx.room.PrimaryKey
 data class ToDoEntity(
     @PrimaryKey(autoGenerate = true)val id: Int,
     @ColumnInfo(name= "to_do") val toDo: String,
-    val done: Boolean = false
+    var done: Boolean = false
 )

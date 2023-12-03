@@ -13,6 +13,7 @@ import dagger.hilt.android.qualifiers.ActivityContext
 import dagger.hilt.android.qualifiers.ApplicationContext
 
 class ToDoAdapter(val context: Context): ListAdapter<ToDoEntity, ToDoAdapter.ToDoViewHolder>(ToDoDiffUtils) {
+    var click: ((ToDoEntity) -> Unit)? = null
 
     object ToDoDiffUtils : DiffUtil.ItemCallback<ToDoEntity>() {
 
@@ -29,13 +30,23 @@ class ToDoAdapter(val context: Context): ListAdapter<ToDoEntity, ToDoAdapter.ToD
     inner class ToDoViewHolder(private val binding: ItemToDoBinding): RecyclerView.ViewHolder(binding.root) {
         fun bind(item: ToDoEntity) {
             binding.toDoText.text = item.toDo
-            if(!item.done) {
+            setCheckBox(item.done)
+
+            itemView.setOnClickListener {
+                click?.invoke(item)
+                setCheckBox(item.done)
+            }
+        }
+        private fun setCheckBox(done: Boolean) {
+            if(!done) {
                 binding.checkBox.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.ellipse))
             } else {
                 binding.checkBox.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.check_circle))
             }
         }
     }
+
+
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ToDoViewHolder {
         return ToDoViewHolder(

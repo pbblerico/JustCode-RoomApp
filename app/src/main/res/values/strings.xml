@@ -5,4 +5,7 @@
     <string name="your_list_is_empty">Your list is empty,</string>
     <string name="click_the_button_below_to_add_an_item_now">Click the button below to add an item now</string>
     <string name="add_item">Add Item</string>
+    <string name="cancel">Cancel</string>
+    <string name="save">Save</string>
+    <string name="add_item_name">Add item name</string>
 </resources>

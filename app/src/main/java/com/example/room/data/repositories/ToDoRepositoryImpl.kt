@@ -9,11 +9,12 @@ import javax.inject.Inject
 class ToDoRepositoryImpl @Inject constructor(
     private val dao: ToDoDao
 ): ToDoRepository {
-    override suspend fun saveTodo(todo: String) {
+    override suspend fun saveTodo(todo: String, done: Boolean) {
         dao.save(
             ToDoEntity(
                 0,
-                todo
+                todo,
+                done
             )
         )
     }
@@ -26,12 +27,12 @@ class ToDoRepositoryImpl @Inject constructor(
         dao.deleteById(id)
     }
 
-    override suspend fun getAll(): List<ToDoEntity> {
-        return getAll()
+    override suspend fun update(toDo: ToDoEntity) {
+        dao.update(toDo)
     }
 
-    override suspend fun getById(id: Int): ToDoEntity {
-        return dao.getById(id)
+    override suspend fun getAll(): List<ToDoEntity> {
+        return dao.getAll()
     }
 
     override var todoFlow: Flow<List<ToDoEntity>> = dao.getAllFlow()

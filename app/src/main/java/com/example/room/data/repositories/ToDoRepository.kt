@@ -4,10 +4,11 @@ import com.example.room.data.db.ToDoEntity
 import kotlinx.coroutines.flow.Flow
 
 interface ToDoRepository {
-    suspend fun saveTodo(todo: String)
+    suspend fun saveTodo(todo: String, done: Boolean = false)
     suspend fun deleteAll()
     suspend fun deleteById(id: Int)
+
+    suspend fun update(toDo: ToDoEntity)
     suspend fun getAll(): List<ToDoEntity>
-    suspend fun getById(id: Int): ToDoEntity
     var todoFlow: Flow<List<ToDoEntity>>
 }
