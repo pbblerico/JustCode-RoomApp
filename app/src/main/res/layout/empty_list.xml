@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:paddingHorizontal="25dp">
+
+    <ImageView
+        android:layout_width="256dp"
+        android:layout_height="205dp"
+        android:layout_gravity="center"
+        android:src="@drawable/empty_screen"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/your_list_is_empty"
+        android:textAlignment="center"
+        android:textColor="@color/empty_list_text"
+        android:textSize="16sp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/click_the_button_below_to_add_an_item_now"
+        android:textAlignment="center"
+        android:textColor="@color/empty_list_text"
+        android:textSize="16sp"/>
+
+</LinearLayout>

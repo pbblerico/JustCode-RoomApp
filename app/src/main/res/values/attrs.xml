@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="CircleCounterView">
+        <attr name="done" format="integer"/>
+        <attr name="total" format="integer"/>
+    </declare-styleable>
+
+</resources>

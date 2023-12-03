@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <color name="gray">#464541</color>
+    <color name="text_color">#A0A0A0</color>
+    <color name="main_bg">#131313</color>
+    <color name="shopping_list">#D2C2C2</color>
+    <color name="empty_list_text">#777676</color>
+    <color name="button_bg">#265651</color>
+    <color name="button_tint">#FFFFFF</color>
+    <color name="to_do_bg">#1d1d1d</color>
+</resources>
