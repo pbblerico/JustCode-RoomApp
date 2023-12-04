@@ -32,7 +32,7 @@ class ToDoAdapter(val context: Context): ListAdapter<ToDoEntity, ToDoAdapter.ToD
             binding.toDoText.text = item.toDo
             setCheckBox(item.done)
 
-            itemView.setOnClickListener {
+            binding.checkBox.setOnClickListener {
                 click?.invoke(item)
                 setCheckBox(item.done)
             }

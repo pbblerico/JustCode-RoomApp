@@ -8,4 +8,5 @@
     <string name="cancel">Cancel</string>
     <string name="save">Save</string>
     <string name="add_item_name">Add item name</string>
+    <string name="clear">Clear</string>
 </resources>

@@ -28,6 +28,10 @@ class MainActivity : AppCompatActivity() {
             viewModel.updateToDo(it)
         }
 
+        binding.clear.setOnClickListener {
+            viewModel.deleteAll()
+        }
+
         viewModel.todoListLiveData.observe(this) {
             binding.emptyList.root.isVisible = it.isEmpty()
             adapter.submitList(it)
