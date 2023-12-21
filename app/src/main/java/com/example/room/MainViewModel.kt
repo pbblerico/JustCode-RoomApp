@@ -49,6 +49,14 @@ class MainViewModel @Inject constructor(
         )
     }
 
+    fun deleteAllCompletely() {
+        launch(
+            request = {
+                repo.deleteAllCompletely()
+            }
+        )
+    }
+
     fun updateToDo(toDo: ToDoEntity) {
         launch(
             request = {

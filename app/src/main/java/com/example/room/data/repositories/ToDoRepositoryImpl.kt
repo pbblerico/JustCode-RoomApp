@@ -31,14 +31,8 @@ class ToDoRepositoryImpl @Inject constructor(
         dao.deleteById(id)
     }
 
-    override suspend fun hasDeleted(): Boolean {
-        return deletedFlow.count() == 0
-    }
-
-    override suspend fun getDeleted(): Flow<List<ToDoEntity>> {
-        return todoFlow.map {list ->
-            list.filter { toDo -> toDo.deleted }
-        }
+    override suspend fun deleteAllCompletely() {
+        dao.deleteAllCompletely()
     }
 
     override suspend fun update(toDo: ToDoEntity) {

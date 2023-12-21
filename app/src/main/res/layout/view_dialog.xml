@@ -27,6 +27,7 @@
         android:background="@drawable/et_shape"
         android:paddingHorizontal="23dp"
         android:paddingVertical="11dp"
+        android:maxLines="1"
         android:textColor="@color/button_tint"
         android:textSize="16sp"
         app:layout_constraintBottom_toTopOf="@id/cancel"

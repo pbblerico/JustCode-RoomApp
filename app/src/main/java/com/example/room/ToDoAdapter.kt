@@ -31,11 +31,11 @@ class ToDoAdapter(val context: Context): ListAdapter<ToDoEntity, ToDoAdapter.ToD
     inner class ToDoViewHolder(private val binding: ItemToDoBinding): RecyclerView.ViewHolder(binding.root) {
         fun bind(item: ToDoEntity) {
             binding.toDoText.text = item.toDo
-            setCheckBox(item.done)
+            setToDoList(item)
 
             binding.checkBox.setOnClickListener {
                 click?.invoke(item)
-                setCheckBox(item.done)
+                if(!item.deleted) setCheckBox(item.done)
             }
 
             binding.delete.setOnClickListener {
@@ -49,6 +49,17 @@ class ToDoAdapter(val context: Context): ListAdapter<ToDoEntity, ToDoAdapter.ToD
                 binding.checkBox.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.check_circle))
             }
         }
+
+        private fun setToDoList(toDo: ToDoEntity) {
+            if(!toDo.deleted) {
+                setCheckBox(toDo.done)
+                binding.delete.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.link))
+            } else {
+                binding.checkBox.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.ic_restore))
+                binding.delete.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.remove_circle))
+            }
+        }
+
     }
 
 

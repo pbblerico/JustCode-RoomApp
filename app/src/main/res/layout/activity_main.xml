@@ -70,7 +70,7 @@
         android:textSize="16sp"
         android:paddingHorizontal="16dp"
         android:paddingVertical="8dp"
-        android:textColor="@color/gray"
+        android:textColor="@color/button_tint"
         android:layout_gravity="center"
         />
 

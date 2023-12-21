@@ -23,8 +23,11 @@ interface ToDoDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun save(todoEntity: ToDoEntity) ////
 
-    @Query("Delete from to_do") ////
+    @Query("UPDATE to_do SET deleted = 1 WHERE deleted = 0") ////
     fun deleteAll()
+
+    @Query("Delete from to_do WHERE deleted = 1")
+    fun deleteAllCompletely()
 
     @Query("Delete from to_do where id = :id")
     fun deleteById(id: Int) ////

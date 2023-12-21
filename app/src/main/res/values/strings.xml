@@ -11,4 +11,10 @@
     <string name="clear">Clear</string>
     <string name="to_do_list">To Do List</string>
     <string name="deleted">Deleted</string>
+    <string name="to_do">To Do</string>
+    <string name="deleted_list">Deleted list</string>
+    <string name="move_to_trash">Move to Trash?</string>
+    <string name="are_you_sure_you_want_to_move_all_tasks_to_trash_you_can_restore_them_from_there">Are you sure you want to move all tasks to Trash? You can restore them from there</string>
+    <string name="delete_all_forever">Delete all forever?</string>
+    <string name="are_you_sure_you_want_to_delete_all_tasks_you_won_t_be_able_to_restore_them">Are you sure you want to delete all tasks? You won\'t be able to restore them</string>
 </resources>

@@ -27,6 +27,12 @@ class CircleCounterView @JvmOverloads constructor(
             binding.total.text = value.toString()
         }
 
+    var title: String
+        get() = binding.title.toString()
+        set(value) {
+            binding.title.text = value
+        }
+
 
     init {
         setAttrs(attrs, R.styleable.CircleCounterView) { it ->

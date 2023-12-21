@@ -32,7 +32,11 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:textSize="16sp"
+            android:layout_gravity="center_vertical"
             android:layout_weight="1"
+            android:layout_marginEnd="10dp"
+            android:singleLine="true"
+            android:overScrollMode="ifContentScrolls"
             android:textColor="@color/button_tint"
             tools:text="hello"
             />
