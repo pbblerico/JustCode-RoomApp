@@ -9,4 +9,6 @@
     <string name="save">Save</string>
     <string name="add_item_name">Add item name</string>
     <string name="clear">Clear</string>
+    <string name="to_do_list">To Do List</string>
+    <string name="deleted">Deleted</string>
 </resources>

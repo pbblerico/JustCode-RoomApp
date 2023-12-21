@@ -28,16 +28,26 @@ class MainActivity : AppCompatActivity() {
             viewModel.updateToDo(it)
         }
 
+        adapter.delete = {
+            it.deleted = true
+            viewModel.updateToDo(it)
+        }
+
         binding.clear.setOnClickListener {
             viewModel.deleteAll()
         }
 
         viewModel.todoListLiveData.observe(this) {
-            binding.emptyList.root.isVisible = it.isEmpty()
-            adapter.submitList(it)
+            val toDoList = it.filter { deleted -> !deleted.deleted }
+            binding.emptyList.root.isVisible = toDoList.isEmpty()
+            adapter.submitList(toDoList)
             binding.circleCounter.total = it.size
-            val done = it.filter { toDo -> toDo.done }.size
+            val done = toDoList.filter { toDo -> toDo.done }.size
             binding.circleCounter.done = done
+        }
+
+        viewModel.deletedToDoListLiveData.observe(this) {
+            binding.deleted.isClickable = it.isNotEmpty()
         }
 
         binding.addButton.setOnClickListener {

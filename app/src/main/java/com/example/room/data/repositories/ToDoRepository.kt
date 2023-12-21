@@ -8,7 +8,11 @@ interface ToDoRepository {
     suspend fun deleteAll()
     suspend fun deleteById(id: Int)
 
+    suspend fun hasDeleted(): Boolean
+    suspend fun getDeleted(): Flow<List<ToDoEntity>>
+
     suspend fun update(toDo: ToDoEntity)
     suspend fun getAll(): List<ToDoEntity>
     var todoFlow: Flow<List<ToDoEntity>>
+    var deletedFlow: Flow<List<ToDoEntity>>
 }

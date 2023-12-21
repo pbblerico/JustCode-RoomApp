@@ -16,6 +16,7 @@ class MainViewModel @Inject constructor(
 ): BaseViewModel() {
 
     val todoListLiveData: LiveData<List<ToDoEntity>> = repo.todoFlow.asLiveData()
+    val deletedToDoListLiveData: LiveData<List<ToDoEntity>> = repo.deletedFlow.asLiveData()
 
     private val _getAllLiveData = MutableLiveData<List<ToDoEntity>>()
     val getAllLieData: LiveData<List<ToDoEntity>> = _getAllLiveData
@@ -36,6 +37,14 @@ class MainViewModel @Inject constructor(
         launch(
             request = {
                 repo.deleteAll()
+            }
+        )
+    }
+
+    fun deleteById(id: Int) {
+        launch(
+            request = {
+                repo.deleteById(id)
             }
         )
     }

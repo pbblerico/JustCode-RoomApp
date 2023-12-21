@@ -56,14 +56,22 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:textSize="16sp"
-        android:padding="16dp"
+        android:paddingHorizontal="16dp"
+        android:paddingVertical="8dp"
         android:text="@string/clear"
         android:textColor="@color/button_tint"
         />
 
-
-
-
-
+    <TextView
+        android:id="@+id/deleted"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/deleted"
+        android:textSize="16sp"
+        android:paddingHorizontal="16dp"
+        android:paddingVertical="8dp"
+        android:textColor="@color/gray"
+        android:layout_gravity="center"
+        />
 
 </LinearLayout>

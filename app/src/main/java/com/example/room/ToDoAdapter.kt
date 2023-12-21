@@ -14,6 +14,7 @@ import dagger.hilt.android.qualifiers.ApplicationContext
 
 class ToDoAdapter(val context: Context): ListAdapter<ToDoEntity, ToDoAdapter.ToDoViewHolder>(ToDoDiffUtils) {
     var click: ((ToDoEntity) -> Unit)? = null
+    var delete: ((ToDoEntity) -> Unit)? = null
 
     object ToDoDiffUtils : DiffUtil.ItemCallback<ToDoEntity>() {
 
@@ -35,6 +36,10 @@ class ToDoAdapter(val context: Context): ListAdapter<ToDoEntity, ToDoAdapter.ToD
             binding.checkBox.setOnClickListener {
                 click?.invoke(item)
                 setCheckBox(item.done)
+            }
+
+            binding.delete.setOnClickListener {
+                delete?.invoke(item)
             }
         }
         private fun setCheckBox(done: Boolean) {
