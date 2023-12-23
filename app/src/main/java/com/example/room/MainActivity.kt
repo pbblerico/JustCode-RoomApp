@@ -46,6 +46,7 @@ class MainActivity : AppCompatActivity() {
 
         binding.clear.setOnClickListener {
             if (!deletedList) {
+                Log.d("helo", "adhafhalsflasfl")
                 deleteAlert(
                     getString(R.string.move_to_trash),
                     getString(R.string.are_you_sure_you_want_to_move_all_tasks_to_trash_you_can_restore_them_from_there)
@@ -53,6 +54,7 @@ class MainActivity : AppCompatActivity() {
                     viewModel.deleteAll()
                 }
             } else {
+                Log.d("helo", "asdasda")
                 deleteAlert(
                     getString(R.string.delete_all_forever),
                     getString(R.string.are_you_sure_you_want_to_delete_all_tasks_you_won_t_be_able_to_restore_them)
