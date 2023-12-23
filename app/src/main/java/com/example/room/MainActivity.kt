@@ -48,15 +48,17 @@ class MainActivity : AppCompatActivity() {
             if (!deletedList) {
                 deleteAlert(
                     getString(R.string.move_to_trash),
-                    getString(R.string.are_you_sure_you_want_to_move_all_tasks_to_trash_you_can_restore_them_from_there),
+                    getString(R.string.are_you_sure_you_want_to_move_all_tasks_to_trash_you_can_restore_them_from_there)
+                ) {
                     viewModel.deleteAll()
-                )
+                }
             } else {
                 deleteAlert(
                     getString(R.string.delete_all_forever),
-                    getString(R.string.are_you_sure_you_want_to_delete_all_tasks_you_won_t_be_able_to_restore_them),
+                    getString(R.string.are_you_sure_you_want_to_delete_all_tasks_you_won_t_be_able_to_restore_them)
+                ) {
                     viewModel.deleteAllCompletely()
-                )
+                }
             }
         }
 
@@ -70,6 +72,11 @@ class MainActivity : AppCompatActivity() {
                 else getString(R.string.deleted)
             binding.addButton.isClickable = !deletedList
             binding.addButton.isVisible = !deletedList
+            if (deletedList)  {
+                setDeletedListAdapter()
+            } else {
+                setToDoListAdapter()
+            }
             getData()
         }
 
@@ -98,13 +105,13 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun deleteAlert(title: String, message: String, action: Unit) {
+    private fun deleteAlert(title: String, message: String, action: () -> Unit) {
         binding.clear.setOnClickListener {
             val alertDialog = AlertDialog.Builder(this)
                 .setTitle(title)
                 .setMessage(message)
                 .setPositiveButton("Yes") { _, _ ->
-                    action
+                    action.invoke()
                 }
                 .setNegativeButton("No") { _, _ -> }
 
